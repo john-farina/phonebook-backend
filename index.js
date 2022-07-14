@@ -24,6 +24,8 @@ let phonebook = [
     },
 ];
 
+app.use(cors());
+
 app.get('/', (request, response) => {
     response.send('<h1>PhoneBook Swag</h1>');
 });
@@ -57,8 +59,6 @@ app.get('/info', (request, response) => {
     response.send(`<h3>phonebook has ${phonebook.length} people</h3>
     <p>${newDate}</p>`);
 });
-
-app.use(cors());
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
