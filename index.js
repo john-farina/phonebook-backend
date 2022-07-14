@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const Person = require('/models/note');
+const Person = require('./models/note.js');
 let phonebook = [
     {
         id: 1,
