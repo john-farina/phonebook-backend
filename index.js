@@ -4,22 +4,22 @@ const cors = require('cors');
 let phonebook = [
     {
         id: 1,
-        name: 'Arto Hellas',
-        number: '040-123456',
+        name: 'John Farina',
+        number: '555-5555',
     },
     {
         id: 2,
-        name: 'Ada Lovelace',
-        number: '39-44-5323523',
+        name: 'Greg',
+        number: '123-1234',
     },
     {
         id: 3,
-        name: 'Dan Abramov',
-        number: '12-43-234345',
+        name: 'Patrick',
+        number: '777-1111',
     },
     {
         id: 4,
-        name: 'Mary Poppendieck',
+        name: 'Mary Poppens',
         number: '39-23-6423122',
     },
 ];
