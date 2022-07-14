@@ -64,3 +64,6 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`server running on ${PORT}`);
 });
+
+//heroku create (MAKES HEROKU SERVER)
+//git push heroku main (PUSHES THE GIT REPO INTO HEROKU MAIN FOR THIS WEBSITE (no clue how it works but it does))
