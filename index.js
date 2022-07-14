@@ -27,7 +27,7 @@ let phonebook = [
 app.use(cors());
 
 app.get('/', (request, response) => {
-    response.send('<h1>PhoneBook</h1>');
+    response.send('<h1>PhoneBook Swag</h1>');
 });
 
 app.get('/api/phonebook', (request, response) => {
@@ -60,7 +60,7 @@ app.get('/info', (request, response) => {
     <p>${newDate}</p>`);
 });
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`server running on ${PORT}`);
 });
