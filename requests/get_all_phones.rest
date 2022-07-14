@@ -1,4 +1,7 @@
-GET http://localhost:3002/api/phonebook
+GET https://afternoon-sea-90029.herokuapp.com/api/phonebook
+
+###
+GET https://afternoon-sea-90029.herokuapp.com/
 
 ###
 DELETE http://localhost:3002/api/phonebook/4
