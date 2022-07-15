@@ -36,19 +36,20 @@ app.get('/', (request, response) => {
 app.get('/api/phonebook', (request, response) => {
     const body = request.body;
 
+    console.log(body);
     if (body.content === undefined) {
         return response.status(400).json({ error: 'missin content' });
     }
 
-    const person = new People({
-        name: body.name,
-        number: body.number,
-        date: new Date(),
-    });
+    // const person = new People({
+    //     name: body.content,
+    //     // number: body.number,
+    //     date: new Date(),
+    // });
 
-    person.save().then((savedPerson) => {
-        response.json(savedPerson);
-    });
+    // person.save().then((savedPerson) => {
+    //     response.json(savedPerson);
+    // });
 
     // response.json(phonebook);
 });
