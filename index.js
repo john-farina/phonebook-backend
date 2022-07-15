@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const Person = require('./models/note.js');
+const People = require('./models/note');
+
 let phonebook = [
     {
         id: 1,
@@ -33,7 +34,23 @@ app.get('/', (request, response) => {
 });
 
 app.get('/api/phonebook', (request, response) => {
-    response.json(phonebook);
+    const body = request.body;
+
+    if (body.content === undefined) {
+        return response.status(400).json({ error: 'missin content' });
+    }
+
+    const person = new People({
+        name: body.name,
+        number: body.number,
+        date: new Date(),
+    });
+
+    person.save().then((savedPerson) => {
+        response.json(savedPerson);
+    });
+
+    // response.json(phonebook);
 });
 
 app.get('/api/phonebook/:id', (request, response) => {
