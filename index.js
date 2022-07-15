@@ -37,9 +37,9 @@ app.get('/api/phonebook', (request, response) => {
     const body = request.body;
 
     console.log(body);
-    if (body.content === undefined) {
-        return response.status(400).json({ error: 'missin content' });
-    }
+    // if (body.content === undefined) {
+    //     return response.status(400).json({ error: 'missin content' });
+    // }
 
     // const person = new People({
     //     name: body.content,
@@ -51,7 +51,7 @@ app.get('/api/phonebook', (request, response) => {
     //     response.json(savedPerson);
     // });
 
-    // response.json(phonebook);
+    response.json(phonebook);
 });
 
 app.get('/api/phonebook/:id', (request, response) => {
