@@ -3,6 +3,18 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const People = require('./models/note');
+const mongoose = require('mongoose');
+const url = process.env.MONGODB_URI;
+const PORT = process.env.PORT;
+
+mongoose
+    .connect(url)
+    .then((result) => {
+        console.log('connected to mongo');
+    })
+    .catch((error) => {
+        console.log('failed to connect');
+    });
 
 let phonebook = [
     {
@@ -35,7 +47,6 @@ app.get('/', (request, response) => {
 
 app.get('/api/phonebook', (request, response) => {
     const body = request.body;
-
     console.log(body);
     // if (body.content === undefined) {
     //     return response.status(400).json({ error: 'missin content' });
@@ -51,7 +62,7 @@ app.get('/api/phonebook', (request, response) => {
     //     response.json(savedPerson);
     // });
 
-    response.json(body);
+    response.json(phonebook);
 });
 
 app.get('/api/phonebook/:id', (request, response) => {
@@ -80,7 +91,6 @@ app.get('/info', (request, response) => {
     <p>${newDate}</p>`);
 });
 
-const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`server running on ${PORT}`);
 });
