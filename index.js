@@ -51,7 +51,7 @@ app.get('/api/phonebook', (request, response) => {
     //     response.json(savedPerson);
     // });
 
-    response.json(phonebook);
+    response.json(body);
 });
 
 app.get('/api/phonebook/:id', (request, response) => {
