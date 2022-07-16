@@ -36,7 +36,7 @@ app.get('/', (request, response) => {
 
 app.get('/api/phonebook', (request, response) => {
     People.find({}).then((person) => {
-        response.send(person);
+        response.json(person);
     });
 });
 
