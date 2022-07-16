@@ -43,7 +43,7 @@ app.get('/api/phonebook', (request, response) => {
 app.post('/api/phonebook', (request, response) => {
     const body = request.body;
 
-    if (body.content === undefined) {
+    if (body.name === undefined) {
         return response.status(400).json({ error: 'missing content' });
     }
 
