@@ -1,6 +1,12 @@
 GET https://afternoon-sea-90029.herokuapp.com/api/phonebook
 
 ###
+POST https://afternoon-sea-90029.herokuapp.com/api/phonebook
+Content-Type: application/json
+
+
+
+###
 GET https://afternoon-sea-90029.herokuapp.com/
 
 ###

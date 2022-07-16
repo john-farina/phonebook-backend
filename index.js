@@ -40,7 +40,7 @@ app.get('/api/phonebook', (request, response) => {
     });
 });
 
-app.post('/api/notes', (request, response) => {
+app.post('/api/phonebook', (request, response) => {
     const body = request.body;
 
     if (body.content === undefined) {
