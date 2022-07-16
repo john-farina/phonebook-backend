@@ -7,15 +7,6 @@ const mongoose = require('mongoose');
 const url = process.env.MONGODB_URI;
 const PORT = process.env.PORT;
 
-mongoose
-    .connect(url)
-    .then((result) => {
-        console.log('connected to mongo');
-    })
-    .catch((error) => {
-        console.log('failed to connect');
-    });
-
 let phonebook = [
     {
         id: 1,
@@ -46,23 +37,9 @@ app.get('/', (request, response) => {
 });
 
 app.get('/api/phonebook', (request, response) => {
-    const body = request.body;
-    console.log(body);
-    // if (body.content === undefined) {
-    //     return response.status(400).json({ error: 'missin content' });
-    // }
-
-    // const person = new People({
-    //     name: body.content,
-    //     // number: body.number,
-    //     date: new Date(),
-    // });
-
-    // person.save().then((savedPerson) => {
-    //     response.json(savedPerson);
-    // });
-
-    response.json(phonebook);
+    People.find({}).then((person) => {
+        response.json(person);
+    });
 });
 
 app.get('/api/phonebook/:id', (request, response) => {
