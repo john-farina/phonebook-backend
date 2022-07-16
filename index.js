@@ -2,9 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const People = require('./models/note');
-const mongoose = require('mongoose');
-const url = process.env.MONGODB_URI;
+const People = require('./models/people');
 const PORT = process.env.PORT;
 
 let phonebook = [
@@ -39,6 +37,24 @@ app.get('/', (request, response) => {
 app.get('/api/phonebook', (request, response) => {
     People.find({}).then((person) => {
         response.json(person);
+    });
+});
+
+app.post('/api/notes', (request, response) => {
+    const body = request.body;
+
+    if (body.content === undefined) {
+        return response.status(400).json({ error: 'missing content' });
+    }
+
+    const person = new People({
+        name: body.name,
+        number: body.number,
+        date: new Date(),
+    });
+
+    person.save().then((savedPerson) => {
+        response.json(savedPerson);
     });
 });
 
