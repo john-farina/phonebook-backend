@@ -4,7 +4,10 @@ GET https://afternoon-sea-90029.herokuapp.com/api/phonebook
 POST https://afternoon-sea-90029.herokuapp.com/api/phonebook
 Content-Type: application/json
 
-
+{
+  "name": "nice",
+  "number": "123456"
+}
 
 ###
 GET https://afternoon-sea-90029.herokuapp.com/
